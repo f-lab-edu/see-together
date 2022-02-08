@@ -7,8 +7,9 @@ import java.time.LocalDateTime;
 @Table(name = "ott_product")
 public class OttProduct {
     @Id
+    @Column(name = "ott_product_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long productId;
+    private Long ottProductId;
 
     @Column(name = "product_name")
     private String productName;

@@ -14,7 +14,7 @@ public class OttProductPrice {
     private Long ottProductPriceId;
 
     @OneToOne(targetEntity = OttProduct.class)
-    @JoinColumn(name = "product_id", referencedColumnName = "ott_product_id")
+    @JoinColumn(name = "ott_product_id", referencedColumnName = "ott_product_id")
     private OttProduct ottProduct;
 
     @Column(name = "product_total_price")
