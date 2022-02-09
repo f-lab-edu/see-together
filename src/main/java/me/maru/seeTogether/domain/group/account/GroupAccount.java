@@ -1,5 +1,6 @@
 package me.maru.seeTogether.domain.group.account;
 
+import lombok.Builder;
 import me.maru.seeTogether.domain.group.ProductGroup;
 
 import javax.persistence.*;
@@ -21,4 +22,14 @@ public class GroupAccount {
 
     @Column(name = "ott_password")
     private String ottPassword;
+
+    public GroupAccount() {}
+
+    @Builder
+    public GroupAccount(Long groupAccountId, ProductGroup productGroup, String ottId, String ottPassword) {
+        this.groupAccountId = groupAccountId;
+        this.productGroup = productGroup;
+        this.ottId = ottId;
+        this.ottPassword = ottPassword;
+    }
 }

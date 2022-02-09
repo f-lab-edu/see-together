@@ -17,7 +17,7 @@ public class ProductGroup {
     @JoinColumn(name = "ott_product_id", referencedColumnName = "ott_product_id")
     private OttProduct ottProduct;
 
-    @Column(name = "current_ participants_size")
+    @Column(name = "current_participants_size")
     private Integer currentParticipantsSize;
 
     public ProductGroup() {}

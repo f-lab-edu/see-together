@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 public class AutoWithdrawal {
 
     @Id
+    @Column(name = "auto_withdrawal_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long autoWithdrawalId;
 
