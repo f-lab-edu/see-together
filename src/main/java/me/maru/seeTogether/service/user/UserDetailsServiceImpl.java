@@ -37,7 +37,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(final String email) throws UsernameNotFoundException {
         return userRepository.findUserByEmail(email).map(user -> {
             return new User(
-                    String.valueOf(user.getId()),
+                    String.valueOf(user.getUserId()),
                     user.getPassword(),
                     Collections.singleton(new SimpleGrantedAuthority(user.getAuthRole().toString()))
             );

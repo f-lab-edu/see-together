@@ -20,7 +20,7 @@ public class User {
     @Id
     @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // 유저 시퀀스값의 ID
+    private Long userId; // 유저 시퀀스값의 ID
 
     @Column(name = "name")
     private String name;
@@ -40,8 +40,8 @@ public class User {
     }
 
     @Builder
-    public User(Long id, String name, String email, String password, AuthRole authority) {
-        this.id = id;
+    public User(Long userId, String name, String email, String password, AuthRole authority) {
+        this.userId = userId;
         this.name = name;
         this.email = email;
         this.password = password;

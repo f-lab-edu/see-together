@@ -6,6 +6,19 @@ package me.maru.seeTogether.domain.payment.card;
  * @author 이석민
  */
 public enum CardCode {
+    NH,
+    TOSS,
+    HANA,
+    KB,
     SAMSUNG,
-    NH
+    SHINHAN,
+    WOORI,
+    LOTTE,
+    HYUNDAI,
+    DAEKU,
+    BUSAN,
+    KYEONGNAM,
+    KBANK,
+    GWANGJU,
+    JEONBUK
 }
