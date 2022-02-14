@@ -1,10 +1,12 @@
 package me.maru.seeTogether.api.v1.payment;
 
 import lombok.Builder;
+import lombok.Getter;
 import me.maru.seeTogether.domain.payment.card.CardCode;
 
 import java.time.LocalDateTime;
 
+@Getter
 public class CardInfoCreateResponse {
     private final Long userId;
     private final CardCode cardCode;

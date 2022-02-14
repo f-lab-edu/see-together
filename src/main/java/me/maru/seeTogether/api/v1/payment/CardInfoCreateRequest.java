@@ -1,5 +1,6 @@
 package me.maru.seeTogether.api.v1.payment;
 
+import lombok.Builder;
 import lombok.Getter;
 import me.maru.seeTogether.domain.payment.card.CardCode;
 
@@ -8,13 +9,21 @@ import javax.validation.constraints.NotNull;
 @Getter
 public class CardInfoCreateRequest {
     @NotNull
-    private Long userId;
+    private final Long userId;
     @NotNull
-    private String userName;
+    private final String userName;
     @NotNull
-    private CardCode cardCode;
+    private final CardCode cardCode;
     @NotNull
-    private String userCardNumber;
+    private final String userCardNumber;
+
+    @Builder
+    public CardInfoCreateRequest(Long userId, String userName, CardCode cardCode, String userCardNumber) {
+        this.userId = userId;
+        this.userName = userName;
+        this.cardCode = cardCode;
+        this.userCardNumber = userCardNumber;
+    }
 
     @Override
     public String toString() {
