@@ -1,6 +1,6 @@
-package me.maru.seeTogether.api.v1.payment;
+package me.maru.seeTogether.api.v1.payment.create;
 
-import me.maru.seeTogether.service.payment.CardInfoCreater;
+import me.maru.seeTogether.service.payment.create.CardInfoCreator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,17 +17,17 @@ import javax.validation.Valid;
 public class CardInfoCreateController {
 
     private final Logger logger = LoggerFactory.getLogger(CardInfoCreateController.class);
-    private final CardInfoCreater cardInfoCreater;
+    private final CardInfoCreator cardInfoCreator;
 
     @Autowired
-    public CardInfoCreateController(final CardInfoCreater cardInfoCreater) {
-        this.cardInfoCreater = cardInfoCreater;
+    public CardInfoCreateController(final CardInfoCreator cardInfoCreator) {
+        this.cardInfoCreator = cardInfoCreator;
     }
 
     @PostMapping(value = "/card")
     public ResponseEntity<CardInfoCreateResponse> create(@Valid @RequestBody final CardInfoCreateRequest cardInfoCreateRequest){
         logger.info("api/v1/card request : {}", cardInfoCreateRequest.toString());
-        final var cardCreateResponse = cardInfoCreater.create(cardInfoCreateRequest);
+        final var cardCreateResponse = cardInfoCreator.create(cardInfoCreateRequest);
         logger.info("api/v1/card response : {}", cardCreateResponse.toString());
         return ResponseEntity.status(201).body(cardCreateResponse);
     }

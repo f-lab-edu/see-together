@@ -1,4 +1,4 @@
-package me.maru.seeTogether.api.v1.payment;
+package me.maru.seeTogether.api.v1.payment.query;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -7,23 +7,23 @@ import me.maru.seeTogether.domain.payment.card.CardCode;
 import java.time.LocalDateTime;
 
 @Getter
-public class CardInfoCreateResponse {
-    private final Long userId;
+public class CardInfoQueryResponse {
     private final CardCode cardCode;
+    private final String userCardNumber;
     private final LocalDateTime createdAt;
 
     @Builder
-    public CardInfoCreateResponse(Long userId, CardCode cardCode, LocalDateTime createdAt) {
-        this.userId = userId;
+    public CardInfoQueryResponse(CardCode cardCode, String userCardNumber, LocalDateTime createdAt) {
         this.cardCode = cardCode;
+        this.userCardNumber = userCardNumber;
         this.createdAt = createdAt;
     }
 
     @Override
     public String toString() {
-        return "CardInfoCreateResponse{" +
-                "userId=" + userId +
-                ", cardCode=" + cardCode +
+        return "CardInfoQueryResponse{" +
+                "cardCode=" + cardCode +
+                ", userCardNumber='" + userCardNumber + '\'' +
                 ", createdAt=" + createdAt +
                 '}';
     }

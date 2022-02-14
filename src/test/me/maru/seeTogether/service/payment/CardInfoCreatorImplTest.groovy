@@ -1,7 +1,8 @@
 package me.maru.seeTogether.service.payment
 
-import me.maru.seeTogether.api.v1.payment.CardInfoCreateRequest
+import me.maru.seeTogether.api.v1.payment.create.CardInfoCreateRequest
 import me.maru.seeTogether.domain.payment.card.CardCode
+import me.maru.seeTogether.service.payment.create.CardInfoCreator
 import org.mockito.MockedStatic
 import org.mockito.Mockito
 import org.springframework.beans.factory.annotation.Autowired
@@ -16,10 +17,10 @@ import java.time.LocalDateTime
 
 @SpringBootTest
 @ActiveProfiles("test")
-class CardInfoCreaterImplTest extends Specification {
+class CardInfoCreatorImplTest extends Specification {
 
     @Autowired
-    CardInfoCreater cardInfoCreater
+    CardInfoCreator cardInfoCreator
 
     def cardInfoCreateRequest
 
@@ -41,7 +42,7 @@ class CardInfoCreaterImplTest extends Specification {
         when:
         try (MockedStatic<LocalDateTime> topDateTimeUtilMock = Mockito.mockStatic(LocalDateTime.class)) {
             topDateTimeUtilMock.when(() -> LocalDateTime.now()).thenReturn(now)
-            createResponse = cardInfoCreater.create(cardInfoCreateRequest)
+            createResponse = cardInfoCreator.create(cardInfoCreateRequest)
         }
 
         then:
@@ -54,7 +55,7 @@ class CardInfoCreaterImplTest extends Specification {
     @WithMockUser(username = "2", roles = "USER")
     def "CardInfo 등록 실패 본인 X"() {
         when:
-        cardInfoCreater.create(cardInfoCreateRequest)
+        cardInfoCreator.create(cardInfoCreateRequest)
 
         then:
         thrown(IllegalArgumentException.class) // 회원 정보와 카드 정보가 일치하지 않습니다.
@@ -64,7 +65,7 @@ class CardInfoCreaterImplTest extends Specification {
     @Transactional
     def "유저 인증 실패 테스트"() {
         when:
-        cardInfoCreater.create(cardInfoCreateRequest)
+        cardInfoCreator.create(cardInfoCreateRequest)
 
         then:
         thrown(UsernameNotFoundException.class)

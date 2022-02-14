@@ -2,6 +2,7 @@ package me.maru.seeTogether.domain.payment.card;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import me.maru.seeTogether.domain.user.User;
 
 import javax.persistence.*;
@@ -22,9 +23,11 @@ public class CardInfo {
     @Column(name = "user_card_number")
     private String userCardNumber;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "user_card_code")
     private CardCode cardCode;
 
+    @Setter
     @Column(name = "delete_yn")
     private Boolean deleteYn;
 

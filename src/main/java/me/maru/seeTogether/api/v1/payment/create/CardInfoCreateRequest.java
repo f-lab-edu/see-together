@@ -1,4 +1,4 @@
-package me.maru.seeTogether.api.v1.payment;
+package me.maru.seeTogether.api.v1.payment.create;
 
 import lombok.Builder;
 import lombok.Getter;
