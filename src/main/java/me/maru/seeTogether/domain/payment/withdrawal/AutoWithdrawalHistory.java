@@ -11,14 +11,14 @@ public class AutoWithdrawalHistory {
     @Id
     @Column(name = "auto_withdrawal_history_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long AutoWithdrawalHistoryId;
+    private Long autoWithdrawalHistoryId;
 
     @OneToOne(targetEntity = AutoWithdrawal.class)
     @JoinColumn(name = "auto_withdrawal_id", referencedColumnName = "auto_withdrawal_id")
     private AutoWithdrawal autoWithdrawal;
 
     @Column(name = "success_yn")
-    private Boolean successYn;
+    private Boolean success;
 
     @Column(name = "fail_description")
     private String failDescription;
@@ -26,10 +26,10 @@ public class AutoWithdrawalHistory {
     public AutoWithdrawalHistory() {}
 
     @Builder
-    public AutoWithdrawalHistory(Long autoWithdrawalHistoryId, AutoWithdrawal autoWithdrawal, Boolean successYn, String failDescription) {
-        AutoWithdrawalHistoryId = autoWithdrawalHistoryId;
+    public AutoWithdrawalHistory(Long autoWithdrawalHistoryId, AutoWithdrawal autoWithdrawal, Boolean success, String failDescription) {
+        this.autoWithdrawalHistoryId = autoWithdrawalHistoryId;
         this.autoWithdrawal = autoWithdrawal;
-        this.successYn = successYn;
+        this.success = success;
         this.failDescription = failDescription;
     }
 }

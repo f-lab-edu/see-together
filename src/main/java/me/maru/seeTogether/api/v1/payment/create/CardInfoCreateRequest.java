@@ -5,6 +5,7 @@ import lombok.Getter;
 import me.maru.seeTogether.domain.payment.card.CardCode;
 
 import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 @Getter
 public class CardInfoCreateRequest {
@@ -33,5 +34,9 @@ public class CardInfoCreateRequest {
                 ", cardCode=" + cardCode +
                 ", userCardNumber='" + userCardNumber + '\'' +
                 '}';
+    }
+
+    public boolean compareToUser(String name, Long userId) {
+        return (this.userName.equals(name) && Objects.equals(this.userId, userId));
     }
 }

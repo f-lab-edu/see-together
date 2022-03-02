@@ -3,6 +3,7 @@ package me.maru.seeTogether.domain.user;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
+import me.maru.seeTogether.api.v1.payment.create.CardInfoCreateRequest;
 
 import javax.persistence.*;
 
@@ -46,5 +47,9 @@ public class User {
         this.email = email;
         this.password = password;
         this.authRole = authority;
+    }
+
+    public boolean compareToCardInfoCreateRequest(CardInfoCreateRequest cardInfoCreateRequest){
+        return cardInfoCreateRequest.compareToUser(this.name, this.userId);
     }
 }

@@ -12,7 +12,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 @Service
 public class CardInfoCreatorImpl implements CardInfoCreator {
@@ -35,7 +34,8 @@ public class CardInfoCreatorImpl implements CardInfoCreator {
 
     @Override
     public CardInfoCreateResponse create(final User user, final CardInfoCreateRequest cardInfoCreateRequest) {
-        if(!checkSameUser(user, cardInfoCreateRequest))
+
+        if(!user.compareToCardInfoCreateRequest(cardInfoCreateRequest))
             throw new IllegalArgumentException("회원 정보와 카드 정보가 일치하지 않습니다.");
 
         final var cardInfo = CardInfo.builder()
@@ -55,8 +55,5 @@ public class CardInfoCreatorImpl implements CardInfoCreator {
                 .build();
     }
 
-    private Boolean checkSameUser(final User user, final CardInfoCreateRequest cardInfoCreateRequest){
-        return Objects.equals(user.getUserId(), cardInfoCreateRequest.getUserId()) &&
-                !user.getName().equals(cardInfoCreateRequest.getUserName());
-    }
+
 }
