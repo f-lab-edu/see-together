@@ -1,11 +1,17 @@
 package me.maru.seeTogether.api.v1.common;
 
 
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 /**
  * Exception 을 핸들링하는 로직을 담당하는 클래스 입니다.
@@ -33,5 +39,21 @@ public class GlobalControllerAdvice {
                 .message(e.getMessage())
                 .build();
         return ResponseEntity.status(404).body(response);
+    }
+
+    // @Valid Convert 에러
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Map<String, String>> handleValidationExceptions(MethodArgumentNotValidException e) {
+        Map<String, String> errors = new HashMap<>();
+        e.getBindingResult().getAllErrors()
+                .forEach(c -> errors.put(((FieldError) c).getField(), c.getDefaultMessage()));
+        // TODO : 변경하기
+        /*
+        final var errors1 = e.getBindingResult().getAllErrors().stream()
+                .map(DefaultMessageSourceResolvable::getDefaultMessage)
+                .collect(Collectors.toUnmodifiableMap());
+        */
+
+        return ResponseEntity.badRequest().body(errors);
     }
 }

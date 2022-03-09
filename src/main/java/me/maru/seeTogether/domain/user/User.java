@@ -3,6 +3,7 @@ package me.maru.seeTogether.domain.user;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
+import me.maru.seeTogether.api.v1.payment.create.CardInfoCreateRequest;
 
 import javax.persistence.*;
 
@@ -20,7 +21,7 @@ public class User {
     @Id
     @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // 유저 시퀀스값의 ID
+    private Long userId; // 유저 시퀀스값의 ID
 
     @Column(name = "name")
     private String name;
@@ -40,11 +41,15 @@ public class User {
     }
 
     @Builder
-    public User(Long id, String name, String email, String password, AuthRole authority) {
-        this.id = id;
+    public User(Long userId, String name, String email, String password, AuthRole authority) {
+        this.userId = userId;
         this.name = name;
         this.email = email;
         this.password = password;
         this.authRole = authority;
+    }
+
+    public boolean compareToCardInfoCreateRequest(CardInfoCreateRequest cardInfoCreateRequest){
+        return cardInfoCreateRequest.compareToUser(this.name, this.userId);
     }
 }
