@@ -1,6 +1,6 @@
 package me.maru.seeTogether.api.v1.payment.create;
 
-import me.maru.seeTogether.service.payment.create.CardInfoCreator;
+import me.maru.seeTogether.service.payment.card.create.CardInfoCreator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

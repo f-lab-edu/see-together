@@ -1,8 +1,6 @@
-package me.maru.seeTogether.service.payment.query;
+package me.maru.seeTogether.service.payment.card.query;
 
 import me.maru.seeTogether.api.v1.payment.query.CardInfoQueryResponse;
-import me.maru.seeTogether.domain.payment.card.CardInfo;
-import me.maru.seeTogether.domain.user.User;
 import me.maru.seeTogether.repository.payment.CardInfoRepository;
 import me.maru.seeTogether.repository.user.UserRepository;
 import me.maru.seeTogether.util.SecurityUtil;

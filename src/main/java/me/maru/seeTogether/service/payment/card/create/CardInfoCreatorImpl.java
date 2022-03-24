@@ -1,4 +1,4 @@
-package me.maru.seeTogether.service.payment.create;
+package me.maru.seeTogether.service.payment.card.create;
 
 import me.maru.seeTogether.api.v1.payment.create.CardInfoCreateRequest;
 import me.maru.seeTogether.api.v1.payment.create.CardInfoCreateResponse;

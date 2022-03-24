@@ -1,4 +1,4 @@
-package me.maru.seeTogether.service.payment.query;
+package me.maru.seeTogether.service.payment.card.query;
 
 import me.maru.seeTogether.api.v1.payment.query.CardInfoQueryResponse;
 
