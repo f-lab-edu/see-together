@@ -30,17 +30,17 @@ public class GroupFollower {
     private LocalDateTime deletedAt;
 
     @Column(name = "delete_yn")
-    private Boolean deleteYn;
+    private Boolean delete;
 
     public GroupFollower() {}
 
     @Builder
-    public GroupFollower(Long groupFollowerId, User user, ProductGroup productGroup, LocalDateTime createdAt, LocalDateTime deletedAt, Boolean deleteYn) {
+    public GroupFollower(Long groupFollowerId, User user, ProductGroup productGroup, LocalDateTime createdAt, LocalDateTime deletedAt, Boolean delete) {
         this.groupFollowerId = groupFollowerId;
         this.user = user;
         this.productGroup = productGroup;
         this.createdAt = createdAt;
         this.deletedAt = deletedAt;
-        this.deleteYn = deleteYn;
+        this.delete = delete;
     }
 }

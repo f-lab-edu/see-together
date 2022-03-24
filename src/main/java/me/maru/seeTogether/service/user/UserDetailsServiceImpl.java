@@ -32,6 +32,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
      * @param email  User.class 객체에 name이 이미 있기 때문에 기본 username 이 아닌 eamil 을 사용
      * @throws UsernameNotFoundException 회원가입이 되어있지않은 유저
      */
+
     // TODO: username 대신 email 을 사용한 부분이 헷갈리는 변수명일 수도 있을 수 있음. 조금더 고민할 필요가 있음
     @Override
     public UserDetails loadUserByUsername(final String email) throws UsernameNotFoundException {
@@ -43,4 +44,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             );
         }).orElseThrow(() -> new UsernameNotFoundException(String.format("email \"%s\" does not exist", email)));
     }
+
 }
+
+

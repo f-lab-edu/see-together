@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface CardInfoRepository extends JpaRepository<CardInfo, Long> {
-    Optional<CardInfo> findCardInfoByUserAndDeleteYn(User user, boolean deleteYn);
+    Optional<CardInfo> findCardInfoByUserAndDeleteYn(User user, boolean delete);
 }

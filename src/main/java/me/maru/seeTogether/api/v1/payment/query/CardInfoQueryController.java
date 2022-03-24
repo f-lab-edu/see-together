@@ -1,6 +1,6 @@
 package me.maru.seeTogether.api.v1.payment.query;
 
-import me.maru.seeTogether.service.payment.query.CardInfoReader;
+import me.maru.seeTogether.service.payment.card.query.CardInfoReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

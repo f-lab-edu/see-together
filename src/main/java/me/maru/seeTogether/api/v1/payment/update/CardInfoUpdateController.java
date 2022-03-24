@@ -2,7 +2,7 @@ package me.maru.seeTogether.api.v1.payment.update;
 
 import me.maru.seeTogether.api.v1.payment.create.CardInfoCreateRequest;
 import me.maru.seeTogether.api.v1.payment.create.CardInfoCreateResponse;
-import me.maru.seeTogether.service.payment.update.CardInfoUpdater;
+import me.maru.seeTogether.service.payment.card.update.CardInfoUpdater;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

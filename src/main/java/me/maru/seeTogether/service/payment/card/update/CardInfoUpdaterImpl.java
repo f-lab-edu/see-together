@@ -1,10 +1,10 @@
-package me.maru.seeTogether.service.payment.update;
+package me.maru.seeTogether.service.payment.card.update;
 
 import me.maru.seeTogether.api.v1.payment.create.CardInfoCreateRequest;
 import me.maru.seeTogether.api.v1.payment.create.CardInfoCreateResponse;
 import me.maru.seeTogether.repository.payment.CardInfoRepository;
 import me.maru.seeTogether.repository.user.UserRepository;
-import me.maru.seeTogether.service.payment.create.CardInfoCreator;
+import me.maru.seeTogether.service.payment.card.create.CardInfoCreator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

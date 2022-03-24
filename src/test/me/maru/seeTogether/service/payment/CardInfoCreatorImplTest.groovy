@@ -2,7 +2,7 @@ package me.maru.seeTogether.service.payment
 
 import me.maru.seeTogether.api.v1.payment.create.CardInfoCreateRequest
 import me.maru.seeTogether.domain.payment.card.CardCode
-import me.maru.seeTogether.service.payment.create.CardInfoCreator
+import me.maru.seeTogether.service.payment.card.create.CardInfoCreator
 import org.mockito.MockedStatic
 import org.mockito.Mockito
 import org.springframework.beans.factory.annotation.Autowired
@@ -70,4 +70,6 @@ class CardInfoCreatorImplTest extends Specification {
         then:
         thrown(UsernameNotFoundException.class)
     }
+
+
 }
